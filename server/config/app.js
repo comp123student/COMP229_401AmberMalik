@@ -13,7 +13,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let mongoose = require('mongoose');
-let DB = require('../db');
+let DB = require('../config/db');
 
 // point mongoose to the DB URI
 mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -24,9 +24,9 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-let indexRouter = require('../../routes/index');
+let indexRouter = require('../../routes/index');  
 let usersRouter = require('../../routes/users');
-let contactsRouter = require('../routes/contact');
+
 
 let app = express();
 
@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/contact-list', contactsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
