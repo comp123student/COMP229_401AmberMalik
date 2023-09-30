@@ -1,4 +1,3 @@
-module.exports = 
-{
+module.exports = {
     "URI": "mongodb://localhost/business_contact"
 }
