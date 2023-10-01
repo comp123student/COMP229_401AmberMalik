@@ -5,60 +5,60 @@ Student ID: 301344310
 Date: September 18, 2023
 */
 
-//installed 3rd party packages
-let createError = require('http-errors');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-let mongoose = require('mongoose');
-let DB = require('../config/db');
+const app = express();
 
-// point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
-
-let mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
-mongoDB.once('open', ()=>{
-  console.log('Connected to MongoDB...');
-});
-
-let indexRouter = require('../../routes/index');  
-let usersRouter = require('../../routes/users');
-
-
-let app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, '../views'));
+// View engine setup (EJS)
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
+// Middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
-app.use(express.static(path.join(__dirname, '../../node_modules')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
+
+// Define your routes here
+const indexRouter = require('../../routes/index');
+const usersRouter = require('../../routes/users');
+const projectsRouter = require('../../routes/projects'); 
+const contactRouter = require('../../routes/contact'); 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/projects', projectsRouter); 
+app.use('/contact', contactRouter);
 
-
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Error handling middleware
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // Handle the error here, e.g., log it to the console
+  console.error(err);
+
+  // Set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // Render the error page
   res.status(err.status || 500);
-  res.render('error', {title: 'Error'});
+  res.render('error', { title: 'Error' });
+});
+
+// Start the server
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 module.exports = app;
