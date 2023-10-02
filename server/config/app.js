@@ -5,12 +5,11 @@ Student ID: 301344310
 Date: September 18, 2023
 */
 
-const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
+const path = require('path'); // Require the path module
+const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const app = express();
 
 // View engine setup (EJS)
@@ -23,17 +22,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 // Define your routes here
 const indexRouter = require('../../routes/index');
 const usersRouter = require('../../routes/users');
-const projectsRouter = require('../../routes/projects'); 
-const contactRouter = require('../../routes/contact'); 
+const projectsRouter = require('../../routes/projects');
+const contactRouter = require('../../routes/contact');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/projects', projectsRouter); 
+app.use('/projects', projectsRouter);
 app.use('/contact', contactRouter);
 
 // Catch 404 and forward to error handler

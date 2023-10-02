@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="/contact.css">
 </head>
 <body>
-    <% include('partials/header') %>
+    <%- include("../views/partials/header") %>
 
     <section>
         <h1>Contact Me</h1>
@@ -31,10 +31,11 @@
                     <textarea id="message" name="message" required></textarea>
                 </div>
                 <button type="submit">Send Message</button>
+                
             </form>
         </div>
     </section>
 
-    <%- include('partials/footer') %>
+    <%- include("../views/partials/footer") %>
 </body>
 </html>
