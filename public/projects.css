@@ -1,0 +1,165 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* Text color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; 
+    font-weight: bold;
+    font-size: 18px; 
+    transition: color 0.3s ease; 
+}
+
+nav ul li a:hover {
+    color: #FF5733; /* Hover link color (Orange) */
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0; /* Increased padding */
+    text-align: center; /* Centered text */
+}
+
+/* Stylish heading */
+header h1 {
+    font-size: 36px; 
+    text-transform: uppercase; 
+    letter-spacing: 4px; 
+}
+
+/* Center-align the "About Me" section */
+.about-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Style the "About Me" section header */
+.about-container h1 {
+    font-size: 32px;
+    color: #FF5733;
+    margin-bottom: 20px;
+    text-align: center; /* Center the header text */
+}
+
+/* Style the profile image */
+.profile-image {
+    margin-top: 20px;
+    text-align: center; /* Center-align the image container */
+}
+
+/* Add some styles to the profile image */
+.profile-image img {
+    max-width: 200px; /* Adjust the image size as needed */
+    border: 5px solid #FF5733; /* Orange border */
+    border-radius: 50%; /* Circular border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Box shadow */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Main content styles */
+main {
+    background-color: #333; /* Dark background for main content */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow */
+}
+
+/* Text styles */
+main p {
+    font-size: 18px; /* Larger text size */
+    line-height: 1.5; /* Improved readability */
+}
+
+/* Footer styles */
+footer {
+    background-color: #1a1a1a; /* Dark background for footer */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0; /* Increased padding */
+}
+
+/* Stylish footer content */
+footer .footer-content {
+    margin-bottom: 20px;
+}
+
+footer h3 {
+    font-size: 20px;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #FF5733;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    color: #fff;
+}
+
+/* Additional styles for navigation links */
+.nav-wrapper {
+    background-color: #333;
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center;
+}
+
+/* Style for project images */
+.project {
+    margin: 20px;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.project img {
+    max-width: 400px; /* Adjust the image size as needed */
+    border: 5px solid #FF5733; /* Orange border */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Box shadow */
+    margin: 20px auto; /* Center the image horizontally and provide spacing */
+}
